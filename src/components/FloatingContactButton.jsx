@@ -1,171 +1,609 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
+import {
+    FaYoutube,
+    FaFacebookF,
+    FaWhatsapp,
+    FaTwitter,
+} from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const FloatingContactButton = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Contact page par button nahi dikhega
-    if (
+    // =====================================================
+    // CONTACT PAGE CHECK
+    // Sirf Contact button hide hoga
+    // Social buttons hamesha visible rahenge
+    // =====================================================
+
+    const isContactPage =
         location.pathname === "/contact" ||
-        location.pathname === "/contact-us"
-    ) {
-        return null;
-    }
+        location.pathname === "/contact-us";
+
+    // =====================================================
+    // CONTACT HANDLER
+    // =====================================================
 
     const handleContact = () => {
         navigate("/contact");
     };
 
     return (
-        <motion.button
-            onClick={handleContact}
-            initial={{
-                opacity: 0,
-                scale: 0.7,
-                y: 30,
-            }}
-            animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-            }}
-            whileHover={{
-                scale: 1.05,
-            }}
-            whileTap={{
-                scale: 0.94,
-            }}
-            transition={{
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-            }}
+        <div
             className="
                 fixed
-                bottom-16
                 right-4
+                bottom-16
+
+                sm:right-7
+                sm:bottom-7
+
                 z-[9998]
 
-                group
-
                 flex
+                flex-col
                 items-center
-                justify-center
                 gap-2
-
-                rounded-full
-
-                bg-orange-500
-                text-white
-
-                shadow-[0_15px_40px_rgba(0,0,0,0.25)]
-
-                border
-                border-white/10
-
-                transition-all
-                duration-300
-
-                hover:bg-white
-                hover:text-black
-
-                sm:bottom-7
-                sm:right-7
-
-                sm:px-5
-                sm:py-3.5
-
-                cursor-pointer
             "
-            aria-label="Contact Us"
         >
 
             {/* =================================================
-                PHONE ICON
+                YOUTUBE
             ================================================= */}
 
-            <span
+            <motion.a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+
+                initial={{
+                    opacity: 0,
+                    scale: 0.5,
+                    y: 20,
+                }}
+
+                animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                }}
+
+                transition={{
+                    duration: 0.45,
+                    delay: 0.05,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+
+                whileHover={{
+                    scale: 1.12,
+                    x: -4,
+                }}
+
+                whileTap={{
+                    scale: 0.9,
+                }}
+
                 className="
+                    group
+                    relative
+
                     flex
                     h-11
                     w-11
+
                     items-center
                     justify-center
 
                     rounded-full
 
-                    bg-white
-                    text-black
+                    bg-red-600
+                    text-white
+
+                    border
+                    border-white/20
+
+                    shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+
+                    cursor-pointer
 
                     transition-all
                     duration-300
 
-                    group-hover:bg-black
-                    group-hover:text-white
-
-                    sm:h-8
-                    sm:w-8
+                    hover:shadow-[0_12px_35px_rgba(220,38,38,0.5)]
                 "
             >
-                <Phone
-                    size={18}
+
+                {/* Blink Ring */}
+
+                <motion.span
+                    animate={{
+                        scale: [1, 1.35, 1],
+                        opacity: [0.5, 0, 0.5],
+                    }}
+
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                    }}
+
                     className="
-                        sm:hidden
+                        pointer-events-none
+                        absolute
+                        inset-0
+                        rounded-full
+                        border-2
+                        border-red-400
                     "
                 />
 
-                <Phone
-                    size={15}
+                <FaYoutube
+                    size={20}
                     className="
-                        hidden
-                        sm:block
+                        relative
+                        z-10
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
                     "
                 />
-            </span>
+
+            </motion.a>
 
 
             {/* =================================================
-                TEXT
-                Desktop only
+                FACEBOOK
             ================================================= */}
 
-            <span
+            <motion.a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+
+                initial={{
+                    opacity: 0,
+                    scale: 0.5,
+                    y: 20,
+                }}
+
+                animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                }}
+
+                transition={{
+                    duration: 0.45,
+                    delay: 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+
+                whileHover={{
+                    scale: 1.12,
+                    x: -4,
+                }}
+
+                whileTap={{
+                    scale: 0.9,
+                }}
+
                 className="
-                    hidden
-                    text-sm
-                    font-semibold
-                    tracking-wide
+                    group
+                    relative
 
-                    sm:block
-                "
-            >
-                Contact Us
-            </span>
+                    flex
+                    h-11
+                    w-11
 
+                    items-center
+                    justify-center
 
-            {/* =================================================
-                ARROW
-                Desktop only
-            ================================================= */}
+                    rounded-full
 
-            <ArrowUpRight
-                size={16}
-                className="
-                    hidden
+                    bg-[#1877F2]
+                    text-white
 
-                    transition-transform
+                    border
+                    border-white/20
+
+                    shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+
+                    cursor-pointer
+
+                    transition-all
                     duration-300
 
-                    group-hover:translate-x-0.5
-                    group-hover:-translate-y-0.5
-
-                    sm:block
+                    hover:shadow-[0_12px_35px_rgba(24,119,242,0.5)]
                 "
-            />
+            >
 
-        </motion.button>
+                {/* Blink Ring */}
+
+                <motion.span
+                    animate={{
+                        scale: [1, 1.35, 1],
+                        opacity: [0.5, 0, 0.5],
+                    }}
+
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0.25,
+                        ease: "easeOut",
+                    }}
+
+                    className="
+                        pointer-events-none
+                        absolute
+                        inset-0
+                        rounded-full
+                        border-2
+                        border-blue-300
+                    "
+                />
+
+                <FaFacebookF
+                    size={18}
+                    className="
+                        relative
+                        z-10
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
+                    "
+                />
+
+            </motion.a>
+
+
+            {/* =================================================
+                WHATSAPP
+            ================================================= */}
+
+            <motion.a
+                href="https://wa.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+
+                initial={{
+                    opacity: 0,
+                    scale: 0.5,
+                    y: 20,
+                }}
+
+                animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                }}
+
+                transition={{
+                    duration: 0.45,
+                    delay: 0.15,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+
+                whileHover={{
+                    scale: 1.12,
+                    x: -4,
+                }}
+
+                whileTap={{
+                    scale: 0.9,
+                }}
+
+                className="
+                    group
+                    relative
+
+                    flex
+                    h-11
+                    w-11
+
+                    items-center
+                    justify-center
+
+                    rounded-full
+
+                    bg-[#25D366]
+                    text-white
+
+                    border
+                    border-white/20
+
+                    shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+
+                    cursor-pointer
+
+                    transition-all
+                    duration-300
+
+                    hover:shadow-[0_12px_35px_rgba(37,211,102,0.5)]
+                "
+            >
+
+                {/* Blink Ring */}
+
+                <motion.span
+                    animate={{
+                        scale: [1, 1.35, 1],
+                        opacity: [0.5, 0, 0.5],
+                    }}
+
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0.5,
+                        ease: "easeOut",
+                    }}
+
+                    className="
+                        pointer-events-none
+                        absolute
+                        inset-0
+                        rounded-full
+                        border-2
+                        border-green-300
+                    "
+                />
+
+                <FaWhatsapp
+                    size={20}
+                    className="
+                        relative
+                        z-10
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
+                    "
+                />
+
+            </motion.a>
+
+
+            {/* =================================================
+                TWITTER / X
+            ================================================= */}
+
+            <motion.a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+
+                initial={{
+                    opacity: 0,
+                    scale: 0.5,
+                    y: 20,
+                }}
+
+                animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                }}
+
+                transition={{
+                    duration: 0.45,
+                    delay: 0.2,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+
+                whileHover={{
+                    scale: 1.12,
+                    x: -4,
+                }}
+
+                whileTap={{
+                    scale: 0.9,
+                }}
+
+                className="
+                    group
+                    relative
+
+                    flex
+                    h-11
+                    w-11
+
+                    items-center
+                    justify-center
+
+                    rounded-full
+
+                    bg-black
+                    text-white
+
+                    border
+                    border-white/20
+
+                    shadow-[0_10px_30px_rgba(0,0,0,0.3)]
+
+                    cursor-pointer
+
+                    transition-all
+                    duration-300
+
+                    hover:bg-neutral-800
+                "
+            >
+
+                {/* Blink Ring */}
+
+                <motion.span
+                    animate={{
+                        scale: [1, 1.35, 1],
+                        opacity: [0.5, 0, 0.5],
+                    }}
+
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0.75,
+                        ease: "easeOut",
+                    }}
+
+                    className="
+                        pointer-events-none
+                        absolute
+                        inset-0
+                        rounded-full
+                        border-2
+                        border-white/50
+                    "
+                />
+
+                <FaTwitter
+                    size={18}
+                    className="
+                        relative
+                        z-10
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
+                    "
+                />
+
+            </motion.a>
+
+
+            {/* =================================================
+                CONTACT BUTTON
+                ONLY THIS BUTTON HIDE ON CONTACT PAGE
+            ================================================= */}
+
+            {!isContactPage && (
+                <motion.button
+                    type="button"
+                    onClick={handleContact}
+
+                    initial={{
+                        opacity: 0,
+                        scale: 0.5,
+                        y: 20,
+                    }}
+
+                    animate={{
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                    }}
+
+                    transition={{
+                        duration: 0.45,
+                        delay: 0.25,
+                        ease: [0.22, 1, 0.36, 1],
+                    }}
+
+                    whileHover={{
+                        scale: 1.12,
+                        x: -4,
+                    }}
+
+                    whileTap={{
+                        scale: 0.9,
+                    }}
+
+                    className="
+                        group
+                        relative
+
+                        flex
+                        h-11
+                        w-11
+
+                        items-center
+                        justify-center
+
+                        rounded-full
+
+                        bg-orange-500
+                        text-white
+
+                        border
+                        border-white/20
+
+                        shadow-[0_12px_35px_rgba(249,115,22,0.4)]
+
+                        cursor-pointer
+
+                        transition-all
+                        duration-300
+
+                        hover:bg-orange-600
+                    "
+
+                    aria-label="Contact Us"
+                >
+
+                    {/* Blink Ring */}
+
+                    <motion.span
+                        animate={{
+                            scale: [1, 1.4, 1],
+                            opacity: [0.6, 0, 0.6],
+                        }}
+
+                        transition={{
+                            duration: 1.8,
+                            repeat: Infinity,
+                            ease: "easeOut",
+                        }}
+
+                        className="
+                            pointer-events-none
+                            absolute
+                            inset-0
+                            rounded-full
+                            border-2
+                            border-orange-300
+                        "
+                    />
+
+                    {/* Highlight */}
+
+                    <motion.span
+                        animate={{
+                            opacity: [0.1, 0.4, 0.1],
+                        }}
+
+                        transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+
+                        className="
+                            pointer-events-none
+                            absolute
+                            inset-0
+                            rounded-full
+                            bg-white
+                        "
+                    />
+
+                    <Phone
+                        size={19}
+                        strokeWidth={2.2}
+                        className="
+                            relative
+                            z-10
+                            transition-transform
+                            duration-300
+                            group-hover:rotate-12
+                        "
+                    />
+
+                </motion.button>
+            )}
+
+        </div>
     );
 };
 

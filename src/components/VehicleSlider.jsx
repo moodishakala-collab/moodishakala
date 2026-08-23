@@ -190,7 +190,7 @@ function VehicleSlider() {
                                     whileHover={{
                                         y: -8,
                                     }}
-                                    className="group relative min-w-55 sm:min-w-65 shrink-0 cursor-pointer"
+                                    className="group relative min-w-55 sm:min-w-65 shrink-0 cursor-pointer border border-orange-300 rounded-3xl"
                                 >
                                     <motion.div
                                         animate={{
@@ -209,7 +209,7 @@ function VehicleSlider() {
                                         transition={{
                                             duration: 0.25,
                                         }}
-                                        className="relative rounded-3xl  border-orange-500  p-6 sm:p-7 overflow-hidden h-full"
+                                        className="relative rounded-3xl   p-6 sm:p-7 overflow-hidden h-full"
                                     >
 
                                         {/* Category Tag */}

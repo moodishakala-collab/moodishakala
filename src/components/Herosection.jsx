@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "motion/react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
     FaShoppingBag,
     FaTshirt,
@@ -10,35 +10,74 @@ import {
     GiBallerinaShoes,
 } from "react-icons/gi";
 
+const heroImages = [
+    "/c1.jpeg",
+    "/c2.jpeg",
+    "/c3.jpeg",
+    "/c4.jpeg",
+    "/c5.jpeg",
+];
+
 const Herosection = () => {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) =>
+                (prev + 1) % heroImages.length
+            );
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <section className="relative min-h-screen w-full overflow-hidden">
+        <div className="relative min-h-screen w-full overflow-hidden">
 
             {/* =====================================================
-                BACKGROUND VIDEO
+                BACKGROUND IMAGE CAROUSEL
             ====================================================== */}
 
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="
-                    absolute
-                    inset-0
-                    h-full
-                    w-full
-                    object-cover
-                "
-            >
-                <source
-                    src="/hero-video.mp4"
-                    type="video/mp4"
-                />
+            <div className="absolute inset-0">
 
-                Your browser does not support the video tag.
-            </video>
+                <AnimatePresence mode="sync">
+
+                    <motion.div
+                        key={currentImage}
+                        initial={{
+                            opacity: 0,
+                            scale: 1.08,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            scale: 1,
+                        }}
+                        exit={{
+                            opacity: 0,
+                            scale: 1.03,
+                        }}
+                        transition={{
+                            opacity: {
+                                duration: 1.2,
+                                ease: "easeInOut",
+                            },
+                            scale: {
+                                duration: 5.5,
+                                ease: "linear",
+                            },
+                        }}
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `url("${heroImages[currentImage]}")`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    />
+
+                </AnimatePresence>
+
+            </div>
+
 
             {/* =====================================================
                 DARK OVERLAY
@@ -48,22 +87,10 @@ const Herosection = () => {
                 className="
                     absolute
                     inset-0
-                    bg-black/60
+                    bg-black/65
                 "
             />
 
-            {/* Optional gradient for better text visibility */}
-
-            <div
-                className="
-                    absolute
-                    inset-0
-                    bg-gradient-to-b
-                    from-black/40
-                    via-black/30
-                    to-black/70
-                "
-            />
 
             {/* =====================================================
                 HERO CONTENT
@@ -85,7 +112,7 @@ const Herosection = () => {
 
                 {/* =================================================
                     BRAND
-                ================================================= */}
+                ================================================== */}
 
                 <motion.div
                     initial={{
@@ -98,10 +125,10 @@ const Herosection = () => {
                     }}
                     transition={{
                         duration: 0.7,
-                        ease: [0.22, 1, 0.36, 1],
                     }}
                     className="text-white"
                 >
+
                     <h1
                         className="
                             text-5xl
@@ -109,7 +136,6 @@ const Herosection = () => {
                             tracking-tight
                             sm:text-6xl
                             md:text-7xl
-                            lg:text-8xl
                         "
                     >
                         Bharat{" "}
@@ -117,12 +143,15 @@ const Herosection = () => {
                         <span className="text-orange-500">
                             Trend
                         </span>
+
                     </h1>
+
                 </motion.div>
+
 
                 {/* =================================================
                     TAGLINE
-                ================================================= */}
+                ================================================== */}
 
                 <motion.h2
                     initial={{
@@ -136,7 +165,6 @@ const Herosection = () => {
                     transition={{
                         delay: 0.25,
                         duration: 0.6,
-                        ease: [0.22, 1, 0.36, 1],
                     }}
                     className="
                         mt-5
@@ -145,24 +173,22 @@ const Herosection = () => {
                         tracking-wide
                         text-white
                         sm:text-3xl
-                        md:text-4xl
                     "
                 >
                     Wear Your Style.
                 </motion.h2>
 
+
                 {/* =================================================
                     DESCRIPTION
-                ================================================= */}
+                ================================================== */}
 
                 <motion.p
                     initial={{
                         opacity: 0,
-                        y: 10,
                     }}
                     animate={{
                         opacity: 1,
-                        y: 0,
                     }}
                     transition={{
                         delay: 0.45,
@@ -171,12 +197,10 @@ const Herosection = () => {
                     className="
                         mt-4
                         max-w-xl
-                        text-sm
-                        font-medium
+                        text-base
                         leading-7
-                        text-white/80
-                        sm:text-base
-                        md:text-lg
+                        text-gray-300
+                        sm:text-lg
                     "
                 >
                     Discover fashion that speaks for you.
@@ -184,9 +208,10 @@ const Herosection = () => {
                     Timeless style, modern trends, made for every you.
                 </motion.p>
 
+
                 {/* =================================================
                     FASHION ICONS
-                ================================================= */}
+                ================================================== */}
 
                 <motion.div
                     initial={{
@@ -198,149 +223,105 @@ const Herosection = () => {
                         y: 0,
                     }}
                     transition={{
-                        delay: 0.6,
+                        delay: 0.3,
                         duration: 0.6,
                     }}
                     className="
                         mt-8
                         flex
-                        items-center
-                        justify-center
-                        gap-5
+                        gap-8
                         text-white
-                        sm:gap-7
                     "
                 >
-                    <motion.div
-                        whileHover={{
-                            y: -5,
-                            scale: 1.1,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
-                    >
-                        <FaShoppingBag size={30} />
-                    </motion.div>
 
-                    <motion.div
-                        whileHover={{
-                            y: -5,
-                            scale: 1.1,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
-                    >
-                        <FaTshirt size={30} />
-                    </motion.div>
+                    <FaShoppingBag size={35} />
 
-                    <motion.div
-                        whileHover={{
-                            y: -5,
-                            scale: 1.1,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
-                    >
-                        <GiClothes size={30} />
-                    </motion.div>
+                    <FaTshirt size={35} />
 
-                    <motion.div
-                        whileHover={{
-                            y: -5,
-                            scale: 1.1,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
-                    >
-                        <GiAmpleDress size={30} />
-                    </motion.div>
+                    <GiClothes size={35} />
 
-                    <motion.div
-                        whileHover={{
-                            y: -5,
-                            scale: 1.1,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
-                    >
-                        <GiBallerinaShoes size={30} />
-                    </motion.div>
+                    <GiAmpleDress size={35} />
+
+                    <GiBallerinaShoes size={35} />
+
                 </motion.div>
+
 
                 {/* =================================================
                     CTA
-                ================================================= */}
+                ================================================== */}
 
                 <motion.button
-                    initial={{
-                        opacity: 0,
-                        y: 15,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    transition={{
-                        delay: 0.75,
-                        duration: 0.6,
-                    }}
                     whileHover={{
                         scale: 1.05,
-                        backgroundColor: "#f97316",
                     }}
                     whileTap={{
                         scale: 0.95,
                     }}
                     className="
                         mt-12
-                        flex
                         cursor-pointer
-                        items-center
-                        gap-2
                         rounded-full
-                        bg-white
+                        bg-blue-700
                         px-10
+                        text-white
                         py-4
                         font-semibold
-                        text-black
-                        shadow-[0_15px_40px_rgba(0,0,0,0.25)]
-                        transition-colors
+                        shadow-xl
+                        transition-all
                         duration-300
+                        hover:bg-orange-500
                     "
                 >
                     Explore Now
-
-                    <span className="text-lg">
-                        →
-                    </span>
                 </motion.button>
+
+
+                {/* =================================================
+                    CAROUSEL INDICATORS
+                ================================================== */}
+
+                <div
+                    className="
+                        absolute
+                        bottom-8
+                        left-1/2
+                        flex
+                        -translate-x-1/2
+                        items-center
+                        gap-2
+                    "
+                >
+
+                    {heroImages.map((_, index) => (
+
+                        <button
+                            key={index}
+                            onClick={() =>
+                                setCurrentImage(index)
+                            }
+                            className={`
+                                h-1.5
+                                rounded-full
+                                transition-all
+                                duration-500
+                                cursor-pointer
+
+                                ${currentImage === index
+                                    ? "w-8 bg-orange-500"
+                                    : "w-2 bg-white/50"
+                                }
+                            `}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+
+                    ))}
+
+                </div>
 
             </div>
 
-            {/* =====================================================
-                BOTTOM FADE
-            ====================================================== */}
-
-            <div
-                className="
-                    pointer-events-none
-                    absolute
-                    bottom-0
-                    left-0
-                    right-0
-                    h-32
-                    bg-gradient-to-t
-                    from-black/50
-                    to-transparent
-                "
-            />
-
-        </section>
+        </div>
     );
 };
 

@@ -16,31 +16,31 @@ const HomeExtraSections = () => {
             number: "01",
             title: "Summer Vibes",
             subtitle: "Light fabrics · Bright colors",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/fast/f1.jpg",
         },
         {
             number: "02",
             title: "Ethnic Fusion",
             subtitle: "Modern kurtas · Festive ready",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/fast/f2.jpg",
         },
         {
             number: "03",
             title: "Casual Everyday",
             subtitle: "Jeans · T-Shirts · Comfort",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/fast/f3.jpg",
         },
         {
             number: "04",
             title: "Festive Glow",
             subtitle: "Traditional · Party Wear",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/fast/f4.jpg",
         },
         {
             number: "05",
             title: "New Arrivals",
             subtitle: "Fresh Styles · Trending Now",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/fast/f5.jpg",
         },
     ];
 
@@ -49,31 +49,31 @@ const HomeExtraSections = () => {
             tag: "BEST DEAL",
             price: "Under ₹499",
             items: "T-Shirts · Tops · Kids Wear",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/one/o1.jpg", 
         },
         {
             tag: "TRENDING",
             price: "Under ₹799",
             items: "Kurtas · Jeans · Kurti",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/one/o2.jpg", 
         },
         {
             tag: "PREMIUM",
             price: "Under ₹999",
             items: "Festive Wear · Co-ord Sets",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/one/o3.jpg", 
         },
         {
             tag: "NEW ARRIVAL",
             price: "Women's Wear",
             items: "Latest Collection",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/one/o4.jpg", 
         },
         {
             tag: "HOT SALE",
             price: "Up To 50% Off",
             items: "Footwear",
-            image: "", // 👉 Yaha apna image URL / path daalein
+            image: "/one/o5.jpg", 
         },
     ];
 
@@ -222,7 +222,7 @@ const HomeExtraSections = () => {
                                 "
                             >
                                 Fast
-                                <span className="text-black/25">
+                                <span className="text-blue-700">
                                     {" "}Fashion.
                                 </span>
                             </h2>
@@ -275,10 +275,9 @@ const HomeExtraSections = () => {
                                 className="
                                     group
                                     relative
-                                    min-h-[260px]
+                                    min-h-65
                                     overflow-hidden
                                     rounded-[26px]
-                                    bg-black
                                     p-6
                                     text-white
                                     transition-shadow
@@ -287,7 +286,6 @@ const HomeExtraSections = () => {
                                 "
                             >
 
-                                {/* 👉 BACKGROUND IMAGE SLOT — apni image yaha item.image me dein */}
 
                                 {item.image && (
                                     <img
@@ -309,11 +307,10 @@ const HomeExtraSections = () => {
                                     className="
                                         absolute
                                         inset-0
-                                        bg-black/50
+                                        bg-black/20
                                     "
                                 />
 
-                                {/* Orange circle */}
 
                                 <div
                                     className="
@@ -346,7 +343,8 @@ const HomeExtraSections = () => {
                                                 border-white/10
                                                 text-[9px]
                                                 font-bold
-                                                text-white/40
+                                                bg-white
+                                                text-blue-700
                                             "
                                         >
                                             {item.number}
@@ -543,7 +541,7 @@ const HomeExtraSections = () => {
                                     className="
                                         absolute
                                         inset-0
-                                        bg-black/55
+                                        bg-black/30
                                     "
                                 />
 
@@ -682,7 +680,7 @@ const HomeExtraSections = () => {
                                 "
                             >
                                 Why Bharat
-                                <span className="text-orange-500">
+                                <span className="text-blue-600">
                                     {" "}Trend?
                                 </span>
                             </h2>
