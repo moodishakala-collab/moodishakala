@@ -1,39 +1,38 @@
-import React from "react";
-import { motion } from "motion/react";
-import { Phone } from "lucide-react";
+import { motion } from 'motion/react'
+import { Phone } from 'lucide-react'
 import {
-    FaYoutube,
-    FaFacebookF,
-    FaWhatsapp,
-    FaTwitter,
-} from "react-icons/fa";
-import { useLocation, useNavigate } from "react-router-dom";
+  FaYoutube,
+  FaFacebookF,
+  FaWhatsapp,
+  FaTwitter,
+  FaInstagram
+} from 'react-icons/fa'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const FloatingContactButton = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
+  const location = useLocation()
+  const navigate = useNavigate()
 
-    // =====================================================
-    // CONTACT PAGE CHECK
-    // Sirf Contact button hide hoga
-    // Social buttons hamesha visible rahenge
-    // =====================================================
+  // =====================================================
+  // CONTACT PAGE CHECK
+  // Sirf Contact button hide hoga
+  // Social buttons hamesha visible rahenge
+  // =====================================================
 
-    const isContactPage =
-        location.pathname === "/contact" ||
-        location.pathname === "/contact-us";
+  const isContactPage =
+    location.pathname === '/contact' || location.pathname === '/contact-us'
 
-    // =====================================================
-    // CONTACT HANDLER
-    // =====================================================
+  // =====================================================
+  // CONTACT HANDLER
+  // =====================================================
 
-    const handleContact = () => {
-        navigate("/contact");
-    };
+  const handleContact = () => {
+    navigate('/contact')
+  }
 
-    return (
-        <div
-            className="
+  return (
+    <div
+      className='
                 fixed
                 right-4
                 bottom-16
@@ -47,14 +46,111 @@ const FloatingContactButton = () => {
                 flex-col
                 items-center
                 gap-2
-            "
-        >
+            '
+    >
+      {/* =================================================
+    INSTAGRAM
+================================================= */}
 
-            {/* =================================================
+      <motion.a
+        href='https://www.instagram.com/moodishakala/'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Instagram'
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          y: 20
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0
+        }}
+        transition={{
+          duration: 0.45,
+          delay: 0,
+          ease: [0.22, 1, 0.36, 1]
+        }}
+        whileHover={{
+          scale: 1.12,
+          x: -4
+        }}
+        whileTap={{
+          scale: 0.9
+        }}
+        className='
+        group
+        relative
+
+        flex
+        h-11
+        w-11
+
+        items-center
+        justify-center
+
+        rounded-full
+
+        bg-gradient-to-tr
+        from-yellow-400
+        via-pink-500
+        to-purple-600
+
+        text-white
+
+        border
+        border-white/20
+
+        shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+
+        cursor-pointer
+
+        transition-all
+        duration-300
+
+        hover:shadow-[0_12px_35px_rgba(236,72,153,0.5)]
+    '
+      >
+        {/* Blink Ring */}
+
+        <motion.span
+          animate={{
+            scale: [1, 1.35, 1],
+            opacity: [0.5, 0, 0.5]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeOut'
+          }}
+          className='
+            pointer-events-none
+            absolute
+            inset-0
+            rounded-full
+            border-2
+            border-pink-300
+        '
+        />
+
+        <FaInstagram
+          size={20}
+          className='
+            relative
+            z-10
+            transition-transform
+            duration-300
+            group-hover:scale-110
+        '
+        />
+      </motion.a>
+
+      {/* =================================================
                 YOUTUBE
             ================================================= */}
 
-            <motion.a
+      {/* <motion.a
                 href="https://www.youtube.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -117,7 +213,6 @@ const FloatingContactButton = () => {
                 "
             >
 
-                {/* Blink Ring */}
 
                 <motion.span
                     animate={{
@@ -152,14 +247,13 @@ const FloatingContactButton = () => {
                     "
                 />
 
-            </motion.a>
+            </motion.a> */}
 
-
-            {/* =================================================
+      {/* =================================================
                 FACEBOOK
             ================================================= */}
 
-            <motion.a
+      {/* <motion.a
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -222,7 +316,6 @@ const FloatingContactButton = () => {
                 "
             >
 
-                {/* Blink Ring */}
 
                 <motion.span
                     animate={{
@@ -258,153 +351,94 @@ const FloatingContactButton = () => {
                     "
                 />
 
-            </motion.a>
+            </motion.a> */}
 
-
-            {/* =================================================
+      {/* =================================================
                 WHATSAPP
             ================================================= */}
 
-            <motion.a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
+      <motion.a
+        href='https://wa.me/917855003727'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='WhatsApp'
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          y: 20
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0
+        }}
+        transition={{
+          duration: 0.45,
+          delay: 0.15,
+          ease: [0.22, 1, 0.36, 1]
+        }}
+        whileHover={{
+          scale: 1.12,
+          x: -4
+        }}
+        whileTap={{
+          scale: 0.9
+        }}
+        className='group relative flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white border border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.25)] cursor-pointer transition-all duration-300 hover:shadow-[0_12px_35px_rgba(37,211,102,0.5)]'
+      >
+        {/* Blink Ring */}
+        <motion.span
+          animate={{
+            scale: [1, 1.35, 1],
+            opacity: [0.5, 0, 0.5]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            delay: 0.5,
+            ease: 'easeOut'
+          }}
+          className='pointer-events-none absolute inset-0 rounded-full border-2 border-green-300'
+        />
 
-                initial={{
-                    opacity: 0,
-                    scale: 0.5,
-                    y: 20,
-                }}
+        <FaWhatsapp
+          size={20}
+          className='relative z-10 transition-transform duration-300 group-hover:scale-110'
+        />
+      </motion.a>
 
-                animate={{
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                }}
-
-                transition={{
-                    duration: 0.45,
-                    delay: 0.15,
-                    ease: [0.22, 1, 0.36, 1],
-                }}
-
-                whileHover={{
-                    scale: 1.12,
-                    x: -4,
-                }}
-
-                whileTap={{
-                    scale: 0.9,
-                }}
-
-                className="
-                    group
-                    relative
-
-                    flex
-                    h-11
-                    w-11
-
-                    items-center
-                    justify-center
-
-                    rounded-full
-
-                    bg-[#25D366]
-                    text-white
-
-                    border
-                    border-white/20
-
-                    shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-
-                    cursor-pointer
-
-                    transition-all
-                    duration-300
-
-                    hover:shadow-[0_12px_35px_rgba(37,211,102,0.5)]
-                "
-            >
-
-                {/* Blink Ring */}
-
-                <motion.span
-                    animate={{
-                        scale: [1, 1.35, 1],
-                        opacity: [0.5, 0, 0.5],
-                    }}
-
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: 0.5,
-                        ease: "easeOut",
-                    }}
-
-                    className="
-                        pointer-events-none
-                        absolute
-                        inset-0
-                        rounded-full
-                        border-2
-                        border-green-300
-                    "
-                />
-
-                <FaWhatsapp
-                    size={20}
-                    className="
-                        relative
-                        z-10
-                        transition-transform
-                        duration-300
-                        group-hover:scale-110
-                    "
-                />
-
-            </motion.a>
-
-
-            {/* =================================================
+      {/* =================================================
                 TWITTER / X
             ================================================= */}
 
-            <motion.a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-
-                initial={{
-                    opacity: 0,
-                    scale: 0.5,
-                    y: 20,
-                }}
-
-                animate={{
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                }}
-
-                transition={{
-                    duration: 0.45,
-                    delay: 0.2,
-                    ease: [0.22, 1, 0.36, 1],
-                }}
-
-                whileHover={{
-                    scale: 1.12,
-                    x: -4,
-                }}
-
-                whileTap={{
-                    scale: 0.9,
-                }}
-
-                className="
+      {/* <motion.a
+        href='https://twitter.com/'
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label='Twitter'
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          y: 20
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0
+        }}
+        transition={{
+          duration: 0.45,
+          delay: 0.2,
+          ease: [0.22, 1, 0.36, 1]
+        }}
+        whileHover={{
+          scale: 1.12,
+          x: -4
+        }}
+        whileTap={{
+          scale: 0.9
+        }}
+        className='
                     group
                     relative
 
@@ -431,180 +465,134 @@ const FloatingContactButton = () => {
                     duration-300
 
                     hover:bg-neutral-800
-                "
-            >
-
-                {/* Blink Ring */}
-
-                <motion.span
-                    animate={{
-                        scale: [1, 1.35, 1],
-                        opacity: [0.5, 0, 0.5],
-                    }}
-
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: 0.75,
-                        ease: "easeOut",
-                    }}
-
-                    className="
+                '
+      >
+        <motion.span
+          animate={{
+            scale: [1, 1.35, 1],
+            opacity: [0.5, 0, 0.5]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            delay: 0.75,
+            ease: 'easeOut'
+          }}
+          className='
                         pointer-events-none
                         absolute
                         inset-0
                         rounded-full
                         border-2
                         border-white/50
-                    "
-                />
+                    '
+        />
 
-                <FaTwitter
-                    size={18}
-                    className="
+        <FaTwitter
+          size={18}
+          className='
                         relative
                         z-10
                         transition-transform
                         duration-300
                         group-hover:scale-110
-                    "
-                />
+                    '
+        />
+      </motion.a> */}
 
-            </motion.a>
-
-
-            {/* =================================================
+      {/* =================================================
                 CONTACT BUTTON
                 ONLY THIS BUTTON HIDE ON CONTACT PAGE
             ================================================= */}
+      {!isContactPage && (
+        <motion.a
+          href='tel:+917855003727'
+          aria-label='Call Us'
+          initial={{
+            opacity: 0,
+            scale: 0.5,
+            y: 20
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0
+          }}
+          transition={{
+            duration: 0.45,
+            delay: 0.25,
+            ease: [0.22, 1, 0.36, 1]
+          }}
+          whileHover={{
+            scale: 1.12,
+            x: -4
+          }}
+          whileTap={{
+            scale: 0.9
+          }}
+          className='
+      group relative
+      flex h-11 w-11
+      items-center justify-center
+      rounded-full
+      bg-orange-500 text-white
+      border border-white/20
+      shadow-[0_12px_35px_rgba(249,115,22,0.4)]
+      cursor-pointer
+      transition-all duration-300
+      hover:bg-orange-600
+    '
+        >
+          {/* Blinking Ring */}
+          <motion.span
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [0.6, 0, 0.6]
+            }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: 'easeOut'
+            }}
+            className='
+        pointer-events-none
+        absolute inset-0
+        rounded-full
+        border-2 border-orange-300
+      '
+          />
 
-            {!isContactPage && (
-                <motion.button
-                    type="button"
-                    onClick={handleContact}
+          {/* Highlight */}
+          <motion.span
+            animate={{
+              opacity: [0.1, 0.4, 0.1]
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+            className='
+        pointer-events-none
+        absolute inset-0
+        rounded-full
+        bg-white
+      '
+          />
 
-                    initial={{
-                        opacity: 0,
-                        scale: 0.5,
-                        y: 20,
-                    }}
+          <Phone
+            size={19}
+            strokeWidth={2.2}
+            className='
+        relative z-10
+        transition-transform duration-300
+        group-hover:rotate-12
+      '
+          />
+        </motion.a>
+      )}
+    </div>
+  )
+}
 
-                    animate={{
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                    }}
-
-                    transition={{
-                        duration: 0.45,
-                        delay: 0.25,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-
-                    whileHover={{
-                        scale: 1.12,
-                        x: -4,
-                    }}
-
-                    whileTap={{
-                        scale: 0.9,
-                    }}
-
-                    className="
-                        group
-                        relative
-
-                        flex
-                        h-11
-                        w-11
-
-                        items-center
-                        justify-center
-
-                        rounded-full
-
-                        bg-orange-500
-                        text-white
-
-                        border
-                        border-white/20
-
-                        shadow-[0_12px_35px_rgba(249,115,22,0.4)]
-
-                        cursor-pointer
-
-                        transition-all
-                        duration-300
-
-                        hover:bg-orange-600
-                    "
-
-                    aria-label="Contact Us"
-                >
-
-                    {/* Blink Ring */}
-
-                    <motion.span
-                        animate={{
-                            scale: [1, 1.4, 1],
-                            opacity: [0.6, 0, 0.6],
-                        }}
-
-                        transition={{
-                            duration: 1.8,
-                            repeat: Infinity,
-                            ease: "easeOut",
-                        }}
-
-                        className="
-                            pointer-events-none
-                            absolute
-                            inset-0
-                            rounded-full
-                            border-2
-                            border-orange-300
-                        "
-                    />
-
-                    {/* Highlight */}
-
-                    <motion.span
-                        animate={{
-                            opacity: [0.1, 0.4, 0.1],
-                        }}
-
-                        transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-
-                        className="
-                            pointer-events-none
-                            absolute
-                            inset-0
-                            rounded-full
-                            bg-white
-                        "
-                    />
-
-                    <Phone
-                        size={19}
-                        strokeWidth={2.2}
-                        className="
-                            relative
-                            z-10
-                            transition-transform
-                            duration-300
-                            group-hover:rotate-12
-                        "
-                    />
-
-                </motion.button>
-            )}
-
-        </div>
-    );
-};
-
-export default FloatingContactButton;
+export default FloatingContactButton

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import {
     BadgeCheck,
@@ -38,7 +37,7 @@ const FEATURES = [
 
 const TrustFeatures = () => {
     return (
-        <section className="relative w-full overflow-hidden bg-white py-6 sm:py-8">
+        <section className="relative w-full overflow-hidden bg-white py-6 sm:py-8 ">
 
             {/* TOP LINE */}
             <div className="absolute left-0 right-0 top-0 h-px bg-black/5" />

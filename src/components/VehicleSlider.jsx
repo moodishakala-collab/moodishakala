@@ -1,58 +1,51 @@
-import {
-    Shirt,
-    Baby,
-    Footprints,
-    Watch,
-    ChevronLeft,
-    ChevronRight,
-    Sparkles,
-} from "lucide-react";
-
-import React, { useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
 
-const VEHICLE_CATEGORIES = [
+import mandala from "../assets/home/mandala.jpeg";
+import resin from "../assets/home/resin.jpeg";
+import frame from "../assets/home/frame.png";
+import Embroidery from "../assets/home/Embroidery.png";
+import painting from "../assets/home/painting.png";
+import craft7 from "../assets/crafts/craft7.png";
+
+
+const CRAFT_CATEGORIES = [
     {
-        title: "Men's Wear",
-        desc: "Casual · Ethnic · Formal",
-        Icon: Shirt,
-        tag: "Trending",
-        image: "/categories/men.png",
+        title: "Mandala Art",
+        desc: "Intricate hand-drawn patterns created with patience, creativity and beautiful geometric details.",
+        tag: "Handcrafted",
+        image: mandala,
     },
     {
-        title: "Women's Wear",
-        desc: "Ethnic · Western · Fusion",
-        Icon: Shirt,
-        tag: "Popular",
-        image: "/categories/women.png",
+        title: "Resin Art",
+        desc: "Beautiful handcrafted creations made with resin, colors and artistic elements for a unique finish.",
+        tag: "Creative",
+        image: resin,
     },
     {
-        title: "Kids Wear Boys",
-        desc: "Casual · Ethnic · Active",
-        Icon: Baby,
-        tag: "New",
-        image: "/categories/boys.png",
+        title: "Paintings",
+        desc: "Original handmade paintings that bring imagination, emotion and artistic expression to life.",
+        tag: "Artwork",
+        image: painting,
     },
     {
-        title: "Kids Wear Girls",
-        desc: "Ethnic · Western · Party",
-        Icon: Baby,
-        tag: "Popular",
-        image: "/categories/girls.png",
+        title: "Photo Frames",
+        desc: "Personalised photo frames designed to turn your favourite memories into beautiful keepsakes.",
+        tag: "Personalised",
+        image: frame,
     },
     {
-        title: "Footwear",
-        desc: "Casual · Sports · Formal",
-        Icon: Footprints,
-        tag: "Trending",
-        image: "/categories/footwear.png",
+        title: "Customised Items",
+        desc: "Unique personalised handmade products created specially to match your ideas, occasions and memories.",
+        tag: "Customised",
+        image: craft7,
     },
     {
-        title: "Accessories",
-        desc: "Bags · Watches · Fashion Accessories",
-        Icon: Watch,
-        tag: "New",
-        image: "/categories/accessories.png",
+        title: "Embroidery",
+        desc: "Detailed handmade embroidery crafted with colourful threads, creative patterns and delicate stitching.",
+        tag: "Handcrafted",
+        image: Embroidery,
     },
 ];
 
@@ -70,7 +63,7 @@ function VehicleSlider() {
     };
 
     return (
-        <div className="w-full bg-white py-20 px-4 overflow-hidden">
+        <div className="w-full bg-white py-10 px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
@@ -87,22 +80,20 @@ function VehicleSlider() {
                         duration: 0.55,
                         ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="flex items-end justify-between mb-10"
+                    className="flex items-end justify-between mb-4"
                 >
                     <div>
+
                         <div className="flex items-center gap-2 mb-3">
                             <div className="h-px w-8 bg-zinc-900" />
 
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
-                                Collections
+                                Our Crafts
                             </span>
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-zinc-900 leading-none">
-                            Shop <br />
-
-                            <span className="relative inline-block">
-                                Categories
+                            Discover Our <span className="relative inline-block">Crafts
 
                                 <motion.div
                                     initial={{
@@ -118,16 +109,19 @@ function VehicleSlider() {
                                     }}
                                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-zinc-900 origin-left"
                                 />
+
                             </span>
                         </h2>
 
                         <p className="text-zinc-400 text-sm mt-3 font-medium">
-                            Discover the latest trends for everyone
+                            Explore beautiful handmade creations crafted with creativity, care and a personal touch.
                         </p>
+
                     </div>
 
                     {/* Navigation */}
                     <div className="hidden sm:flex items-center gap-2">
+
                         <motion.div
                             whileTap={{
                                 scale: 0.88,
@@ -153,20 +147,24 @@ function VehicleSlider() {
                                 strokeWidth={2.5}
                             />
                         </motion.div>
+
                     </div>
                 </motion.div>
 
                 {/* Categories */}
                 <div className="relative">
+
                     <div
                         ref={sliderRef}
-                        className="flex gap-5 pt-20 overflow-x-auto scroll-smooth pb-4 px-1"
+                        className="flex gap-5 pt-10 overflow-x-auto scroll-smooth pb-4 px-1"
                         style={{
                             scrollbarWidth: "none",
                             msOverflowStyle: "none",
                         }}
                     >
-                        {VEHICLE_CATEGORIES.map((c, i) => {
+
+                        {CRAFT_CATEGORIES.map((c, i) => {
+
                             const isHovered = hovered === i;
 
                             return (
@@ -190,8 +188,9 @@ function VehicleSlider() {
                                     whileHover={{
                                         y: -8,
                                     }}
-                                    className="group relative min-w-55 sm:min-w-65 shrink-0 cursor-pointer border border-orange-300 rounded-3xl"
+                                    className="group relative w-80 shrink-0 cursor-pointer border border-orange-300 rounded-3xl overflow-hidden"
                                 >
+
                                     <motion.div
                                         animate={{
                                             backgroundColor: isHovered
@@ -209,15 +208,33 @@ function VehicleSlider() {
                                         transition={{
                                             duration: 0.25,
                                         }}
-                                        className="relative rounded-3xl   p-6 sm:p-7 overflow-hidden h-full"
+                                        className="relative rounded-3xl p-6 sm:p-7 overflow-hidden h-full min-h-[220px]"
+                                        style={{
+                                            backgroundImage: `url(${c.image})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                        }}
                                     >
+
+                                        {/* Background Overlay */}
+                                        <motion.div
+                                            animate={{
+                                                backgroundColor: isHovered
+                                                    ? "rgba(0,0,0,0.72)"
+                                                    : "rgba(0,0,0,0.45)",
+                                            }}
+                                            transition={{
+                                                duration: 0.25,
+                                            }}
+                                            className="absolute inset-0 z-0"
+                                        />
 
                                         {/* Category Tag */}
                                         <motion.div
                                             animate={{
                                                 backgroundColor: isHovered
                                                     ? "rgba(255,255,255,0.12)"
-                                                    : "#f4f4f5",
+                                                    : "rgba(255,255,255,0.9)",
 
                                                 color: isHovered
                                                     ? "#ffffff"
@@ -225,56 +242,26 @@ function VehicleSlider() {
 
                                                 borderColor: isHovered
                                                     ? "rgba(255,255,255,0.15)"
-                                                    : "#e4e4e7",
+                                                    : "rgba(255,255,255,0.8)",
                                             }}
                                             className="relative z-10 inline-flex items-center gap-1.5 border text-[9px] font-black uppercase tracking-[0.18em] px-2.5 py-1.5 rounded-full mb-5 transition-colors"
                                         >
+
                                             <Sparkles size={8} />
 
                                             {c.tag}
-                                        </motion.div>
 
-                                        {/* Icon */}
-                                        <motion.div
-                                            animate={{
-                                                backgroundColor: isHovered
-                                                    ? "rgba(255,255,255,0.1)"
-                                                    : "#f4f4f5",
-
-                                                borderColor: isHovered
-                                                    ? "rgba(255,255,255,0.15)"
-                                                    : "#e4e4e7",
-                                            }}
-                                            className="relative z-10 w-14 h-14 rounded-2xl border flex items-center justify-center mb-5 transition-colors"
-                                        >
-                                            <motion.div
-                                                animate={{
-                                                    color: isHovered
-                                                        ? "#ffffff"
-                                                        : "#3f3f46",
-                                                }}
-                                                transition={{
-                                                    duration: 0.2,
-                                                }}
-                                            >
-                                                <c.Icon
-                                                    size={24}
-                                                    strokeWidth={1.4}
-                                                />
-                                            </motion.div>
                                         </motion.div>
 
                                         {/* Title */}
                                         <motion.h3
                                             animate={{
-                                                color: isHovered
-                                                    ? "#ffffff"
-                                                    : "#09090b",
+                                                color: "#ffffff",
                                             }}
                                             transition={{
                                                 duration: 0.2,
                                             }}
-                                            className="relative z-10 text-lg font-black tracking-tight leading-none mb-2"
+                                            className="relative z-10 text-lg font-black tracking-tight leading-none mt-15 mb-2"
                                         >
                                             {c.title}
                                         </motion.h3>
@@ -282,9 +269,7 @@ function VehicleSlider() {
                                         {/* Description */}
                                         <motion.p
                                             animate={{
-                                                color: isHovered
-                                                    ? "rgba(255,255,255,0.5)"
-                                                    : "#a1a1aa",
+                                                color: "rgba(255,255,255,0.75)",
                                             }}
                                             transition={{
                                                 duration: 0.2,
@@ -294,36 +279,14 @@ function VehicleSlider() {
                                             {c.desc}
                                         </motion.p>
 
-                                        {/* Product Image */}
-                                        <motion.img
-                                            src={c.image}
-                                            alt={c.title}
-                                            initial={{
-                                                opacity: 0,
-                                                x: 20,
-                                                y: 10,
-                                            }}
-                                            whileInView={{
-                                                opacity: 1,
-                                                x: 0,
-                                                y: 0,
-                                            }}
-                                            animate={{
-                                                scale: isHovered ? 1.05 : 1,
-                                                x: isHovered ? -3 : 0,
-                                            }}
-                                            transition={{
-                                                duration: 0.35,
-                                                ease: [0.22, 1, 0.36, 1],
-                                            }}
-                                            className="absolute z-[1] right-[-8px] bottom-[-4px] w-[125px] sm:w-[140px] h-[175px] sm:h-[190px] object-contain object-bottom pointer-events-none select-none"
-                                        />
-
                                     </motion.div>
+
                                 </motion.div>
                             );
                         })}
+
                     </div>
+
                 </div>
 
                 {/* Bottom Stats */}
@@ -339,24 +302,27 @@ function VehicleSlider() {
                     }}
                     className="flex items-center gap-6 mt-8 pt-6 border-t border-zinc-100"
                 >
+
                     {[
                         {
                             num: "6+",
-                            label: "Categories",
+                            label: "Craft Categories",
                         },
                         {
                             num: "100+",
-                            label: "Styles",
+                            label: "Handmade Designs",
                         },
                         {
-                            num: "24/7",
-                            label: "Shopping",
+                            num: "1000+",
+                            label: "Custom Creations",
                         },
                     ].map((d, i) => (
+
                         <div
                             key={i}
                             className="flex items-center gap-3"
                         >
+
                             <p className="text-zinc-900 text-lg font-black tracking-tight">
                                 {d.num}
                             </p>
@@ -364,8 +330,11 @@ function VehicleSlider() {
                             <p className="text-zinc-400 text-xs font-medium">
                                 {d.label}
                             </p>
+
                         </div>
+
                     ))}
+
                 </motion.div>
 
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
     MapPin,
@@ -7,7 +7,7 @@ import {
     X,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Logo from "/white Logo.png";
+import Logo from "../assets/logo.jpeg";
 import ConatctModal from "../components/ConatctModal";
 
 // =====================================================
@@ -24,32 +24,16 @@ const NavItems = [
         path: "/about-us",
     },
     {
-        name: "Women",
-        path: "/women",
+        name: "Gallery",
+        path: "/gallery",
     },
     {
-        name: "Men",
-        path: "/men",
+        name: "Our Crafts",
+        path: "/our-crafts",
     },
     {
-        name: "Kids",
-        path: "/kids",
-    },
-    {
-        name: "New Arrivals",
-        path: "/new-arrivals",
-    },
-    {
-        name: "Offers",
-        path: "/offers",
-    },
-    {
-        name: "Carrer",
-        path: "/career",
-    },
-    {
-        name: "Vender",
-        path: "/vendor",
+        name: "Contact",
+        path: "/contact",
     },
 ];
 
@@ -154,13 +138,13 @@ const Navbar = () => {
                 `}
             >
 
-                <div className="mx-auto max-w-7xl px-4 md:px-8">
+                <div className="mx-auto max-w-7xl px-4 py-1.5 md:px-8">
 
                     {/* =================================================
                         MAIN NAVBAR
                     ================================================== */}
 
-                    <div className="flex h-[70px] items-center justify-between">
+                    <div className="flex h-16 items-center justify-between">
 
 
                         {/* =================================================
@@ -175,20 +159,14 @@ const Navbar = () => {
 
                             <motion.img
                                 src={Logo}
-                                alt="Bharat Trend"
+                                alt="Mo odisha kala"
                                 whileHover={{
                                     scale: 1.04,
                                 }}
                                 transition={{
                                     duration: 0.2,
                                 }}
-                                className="
-                                    h-auto
-                                    w-[85px]
-                                    object-contain
-
-                                    md:w-[100px]
-                                "
+                                className="h-auto w-20 object-contain md:w-15 bg-white rounded-full p-1"
                             />
 
                         </Link>
@@ -272,9 +250,8 @@ const Navbar = () => {
 
                         <div className="hidden items-center gap-2 lg:flex">
 
-                            {/* FIND STORE */}
 
-                            <motion.button
+                            {/* <motion.button
                                 onClick={handleStoreOpen}
                                 whileHover={{
                                     scale: 1.05,
@@ -324,7 +301,6 @@ const Navbar = () => {
                                     Find Store
                                 </span>
 
-                                {/* BLINK DOT */}
 
                                 <motion.span
                                     animate={{
@@ -338,7 +314,7 @@ const Navbar = () => {
                                     }}
                                     className="
                                         absolute
-                                        right-2
+                                        right-3
                                         top-2
 
                                         h-1.5
@@ -349,7 +325,7 @@ const Navbar = () => {
                                     "
                                 />
 
-                            </motion.button>
+                            </motion.button> */}
 
 
                             {/* ENQUIRY */}
@@ -654,7 +630,7 @@ const Navbar = () => {
 
                                         {/* FIND STORE */}
 
-                                        <motion.button
+                                        {/* <motion.button
                                             initial={{
                                                 opacity: 0,
                                                 y: 10,
@@ -715,7 +691,6 @@ const Navbar = () => {
                                             </span>
 
 
-                                            {/* BLINK DOT */}
 
                                             <motion.span
                                                 animate={{
@@ -748,7 +723,7 @@ const Navbar = () => {
                                                 "
                                             />
 
-                                        </motion.button>
+                                        </motion.button> */}
 
 
                                         {/* ENQUIRY */}
@@ -829,8 +804,6 @@ const Navbar = () => {
 
             {/* =====================================================
                 CONTACT MODAL
-
-                Navbar ke bahar rakha gaya hai
             ====================================================== */}
 
             <ConatctModal

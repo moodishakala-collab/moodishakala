@@ -1,5 +1,7 @@
-import React from "react";
+
 import { motion } from "motion/react";
+
+
 import {
     ArrowUpRight,
     MapPin,
@@ -9,110 +11,91 @@ import {
     Star,
     TrendingUp,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import craft4 from "../assets/crafts/craft4.png"
+import craft18 from "../assets/crafts/craft18.png"
+import image6 from "../assets/crafts/image6.png"
+import image4 from "../assets/crafts/image4.png"
+import craft3 from "../assets/crafts/craft3.png"
+import Embrio from "../assets/crafts/Embrio.png"
 
 const HomeExtraSections = () => {
-    const fastFashion = [
-        {
-            number: "01",
-            title: "Summer Vibes",
-            subtitle: "Light fabrics · Bright colors",
-            image: "/fast/f1.jpg",
-        },
-        {
-            number: "02",
-            title: "Ethnic Fusion",
-            subtitle: "Modern kurtas · Festive ready",
-            image: "/fast/f2.jpg",
-        },
-        {
-            number: "03",
-            title: "Casual Everyday",
-            subtitle: "Jeans · T-Shirts · Comfort",
-            image: "/fast/f3.jpg",
-        },
-        {
-            number: "04",
-            title: "Festive Glow",
-            subtitle: "Traditional · Party Wear",
-            image: "/fast/f4.jpg",
-        },
-        {
-            number: "05",
-            title: "New Arrivals",
-            subtitle: "Fresh Styles · Trending Now",
-            image: "/fast/f5.jpg",
-        },
-    ];
 
-    const shoppingDeals = [
+    const craftHighlights = [
         {
-            tag: "BEST DEAL",
-            price: "Under ₹499",
-            items: "T-Shirts · Tops · Kids Wear",
-            image: "/one/o1.jpg", 
+            tag: "HANDCRAFTED",
+            price: "Mandala Art",
+            items: "Intricate handmade mandala designs created with patience and creativity.",
+            image: craft4,
         },
         {
-            tag: "TRENDING",
-            price: "Under ₹799",
-            items: "Kurtas · Jeans · Kurti",
-            image: "/one/o2.jpg", 
+            tag: "CREATIVE",
+            price: "Resin Art",
+            items: "Unique resin creations made with colours, textures and artistic details.",
+            image: image6,
         },
         {
-            tag: "PREMIUM",
-            price: "Under ₹999",
-            items: "Festive Wear · Co-ord Sets",
-            image: "/one/o3.jpg", 
+            tag: "ARTWORK",
+            price: "Paintings",
+            items: "Beautiful handmade paintings created to bring art and imagination to life.",
+            image: image4,
         },
         {
-            tag: "NEW ARRIVAL",
-            price: "Women's Wear",
-            items: "Latest Collection",
-            image: "/one/o4.jpg", 
+            tag: "PERSONALISED",
+            price: "Photo Frames",
+            items: "Personalised frames designed to turn your favourite memories into keepsakes.",
+            image: craft3,
         },
         {
-            tag: "HOT SALE",
-            price: "Up To 50% Off",
-            items: "Footwear",
-            image: "/one/o5.jpg", 
+            tag: "CUSTOMISED",
+            price: "Customised Items",
+            items: "Unique handmade products created specially according to your ideas and occasions.",
+            image: craft18,
+        },
+        {
+            tag: "HANDCRAFTED",
+            price: "Embroidery",
+            items: "Detailed handmade embroidery featuring creative patterns and delicate stitching.",
+            image: Embrio,
         },
     ];
 
     const promises = [
         {
             icon: MapPin,
-            number: "100",
+            number: "6+",
             suffix: "",
-            title: "Upcoming 100 Stores",
+            title: "Craft Categories",
             description:
-                "Spreading across Tier-2, Tier-3 & Tier-4 cities with new stores opening soon across Odisha • Jharkhand • Chhattisgarh • West Bengal • Bihar • Assam",
-            smallText: "Coming Soon",
+                "Explore handmade creations ranging from mandala and resin art to paintings, embroidery and personalised crafts.",
+            smallText: "CRAFT FORMS",
         },
         {
             icon: ShieldCheck,
             number: "100%",
             suffix: "",
-            title: "Premium Quality",
+            title: "Handcrafted",
             description:
-                "Carefully selected premium fabrics and superior stitching techniques are combined to deliver lasting comfort, exceptional durability, and unmatched style for your everyday.",
-            smallText: "QUALITY ASSURED",
+                "Every creation is made with care, creativity and attention to detail to give each piece its own character.",
+            smallText: "HANDMADE",
         },
         {
             icon: TrendingUp,
-            number: "₹199",
+            number: "1000+",
             suffix: "",
-            title: "Truly Affordable",
+            title: "Creative Designs",
             description:
-                "Discover fashion-forward collections and trendsetting styles offered at highly competitive prices that make perfect sense for the budget of every modern Indian.",
-            smallText: "STARTING PRICE",
+                "Discover artistic creations made for home decor, gifting, celebrations, memories and special occasions.",
+            smallText: "CREATIVE ART",
         },
         {
             icon: RefreshCcw,
-            number: "15",
+            number: "∞",
             suffix: "",
-            title: "Easy Exchange",
+            title: "Custom Ideas",
             description:
-                "Shop with absolute confidence through our seamless, transparent, and completely hassle-free return and exchange policy designed specifically to ensure your complete.",
-            smallText: "DAYS POLICY",
+                "Bring your ideas to life with personalised designs and customised handmade pieces created especially for you.",
+            smallText: "PERSONALISED",
         },
     ];
 
@@ -120,291 +103,37 @@ const HomeExtraSections = () => {
         {
             rating: "5.0",
             review:
-                "The quality is excellent and the prices are unbelievable! I bought kurtis for myself and my daughter. Both loved the fit and fabric.",
+                "The customised artwork was beautiful and exactly matched the idea I had in mind. The attention to detail was amazing.",
             name: "Priya Sharma",
-            location: "Ranchi, Jharkhand",
+            location: "Bhubaneswar, Odisha",
             image: "/customer/priya.jpg",
         },
         {
             rating: "4.5",
             review:
-                "Finally a brand that understands middle-class families. Great collection for men and kids. The store in Patna is well organized and staff is very helpful.",
+                "I loved the resin art and personalised frame. Everything felt thoughtfully handmade and made the perfect gift.",
             name: "Rahul Verma",
-            location: "Kolkata, West Bengal",
+            location: "Cuttack, Odisha",
             image: "/customer/rahul.jpg",
         },
         {
             rating: "5.0",
             review:
-                "Bought festive wear for the whole family during Diwali. Everything was perfect — color, fitting, and price. Will definitely shop again!",
+                "A beautiful collection of handmade crafts. The customisation made the artwork feel much more personal and special.",
             name: "Anjali Patel",
-            location: "Ranchi, Jharkhand",
+            location: "Puri, Odisha",
             image: "/customer/anjali.jpg",
         },
     ];
-
+    const navigate= useNavigate()
     return (
         <main className="w-full overflow-hidden bg-white text-black">
 
             {/* =====================================================
-                FAST FASHION
+                EXPLORE OUR CRAFTS
             ====================================================== */}
 
-            <section className="relative bg-[#f2f2ef] px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
-
-                {/* Background Shape */}
-
-                <div
-                    className="
-                        pointer-events-none
-                        absolute
-                        -right-40
-                        top-20
-                        h-[450px]
-                        w-[450px]
-                        rounded-full
-                        bg-orange-500/10
-                        blur-3xl
-                    "
-                />
-
-                <div className="relative mx-auto max-w-7xl">
-
-                    <motion.div
-                        initial={{
-                            opacity: 0,
-                            y: 30,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            y: 0,
-                        }}
-                        viewport={{
-                            once: true,
-                            amount: 0.2,
-                        }}
-                        transition={{
-                            duration: 0.7,
-                        }}
-                        className="
-                            flex
-                            flex-col
-                            justify-between
-                            gap-8
-                            md:flex-row
-                            md:items-end
-                        "
-                    >
-
-                        <div>
-
-                            <p
-                                className="
-                                    text-[10px]
-                                    font-bold
-                                    uppercase
-                                    tracking-[0.3em]
-                                    text-orange-500
-                                "
-                            >
-                                Latest Trends
-                            </p>
-
-                            <h2
-                                className="
-                                    mt-3
-                                    text-5xl
-                                    font-semibold
-                                    leading-[0.9]
-                                    tracking-[-0.07em]
-                                    sm:text-6xl
-                                    lg:text-7xl
-                                "
-                            >
-                                Fast
-                                <span className="text-blue-700">
-                                    {" "}Fashion.
-                                </span>
-                            </h2>
-
-                        </div>
-
-                        <p
-                            className="
-                                max-w-md
-                                text-sm
-                                leading-7
-                                text-black/60
-                                sm:text-base
-                            "
-                        >
-                            Discover the latest styles loved by Bharat —
-                            fresh, trendy and perfect for every occasion.
-                        </p>
-
-                    </motion.div>
-
-
-                    {/* Fashion Cards */}
-
-                    <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-
-                        {fastFashion.map((item, index) => (
-
-                            <motion.div
-                                key={item.title}
-                                initial={{
-                                    opacity: 0,
-                                    y: 35,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                viewport={{
-                                    once: true,
-                                    amount: 0.1,
-                                }}
-                                transition={{
-                                    duration: 0.55,
-                                    delay: index * 0.07,
-                                }}
-                                whileHover={{
-                                    y: -7,
-                                }}
-                                className="
-                                    group
-                                    relative
-                                    min-h-65
-                                    overflow-hidden
-                                    rounded-[26px]
-                                    p-6
-                                    text-white
-                                    transition-shadow
-                                    duration-300
-                                    hover:shadow-2xl
-                                "
-                            >
-
-
-                                {item.image && (
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="
-                                            absolute
-                                            inset-0
-                                            h-full
-                                            w-full
-                                            object-cover
-                                        "
-                                    />
-                                )}
-
-                                {/* Dark overlay so text stays readable over the image */}
-
-                                <div
-                                    className="
-                                        absolute
-                                        inset-0
-                                        bg-black/20
-                                    "
-                                />
-
-
-                                <div
-                                    className="
-                                        absolute
-                                        -right-14
-                                        -top-14
-                                        h-40
-                                        w-40
-                                        rounded-full
-                                        bg-orange-500/10
-                                        transition-transform
-                                        duration-500
-                                        group-hover:scale-150
-                                    "
-                                />
-
-                                <div className="relative flex h-full flex-col justify-between">
-
-                                    <div className="flex items-start justify-between">
-
-                                        <span
-                                            className="
-                                                flex
-                                                h-9
-                                                w-9
-                                                items-center
-                                                justify-center
-                                                rounded-full
-                                                border
-                                                border-white/10
-                                                text-[9px]
-                                                font-bold
-                                                bg-white
-                                                text-blue-700
-                                            "
-                                        >
-                                            {item.number}
-                                        </span>
-
-                                        <ArrowUpRight
-                                            size={19}
-                                            className="
-                                                text-orange-500
-                                                transition-transform
-                                                duration-300
-                                                group-hover:translate-x-1
-                                                group-hover:-translate-y-1
-                                            "
-                                        />
-
-                                    </div>
-
-                                    <div className="mt-20">
-
-                                        <h3
-                                            className="
-                                                text-xl
-                                                font-semibold
-                                                tracking-[-0.04em]
-                                            "
-                                        >
-                                            {item.title}
-                                        </h3>
-
-                                        <p
-                                            className="
-                                                mt-2
-                                                text-xs
-                                                leading-5
-                                                text-white/45
-                                            "
-                                        >
-                                            {item.subtitle}
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </motion.div>
-
-                        ))}
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* =====================================================
-                ONE CLICK SHOPPING
-            ====================================================== */}
-
-            <section className="bg-black px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-28">
+            <section className="bg-black px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-18">
 
                 <div className="mx-auto max-w-7xl">
 
@@ -438,7 +167,7 @@ const HomeExtraSections = () => {
                                         text-orange-500
                                     "
                                 >
-                                    Shop Smart
+                                    Explore Our Crafts
                                 </p>
 
                                 <h2
@@ -451,9 +180,9 @@ const HomeExtraSections = () => {
                                         sm:text-6xl
                                     "
                                 >
-                                    One Click
+                                    Art &amp;
                                     <span className="text-orange-600">
-                                        {" "}Shopping.
+                                        {" "}Crafts.
                                     </span>
                                 </h2>
 
@@ -468,8 +197,8 @@ const HomeExtraSections = () => {
                                     sm:text-base
                                 "
                             >
-                                Trendy fashion that doesn't burn a hole
-                                in your pocket.
+                                Explore beautiful handmade creations made with
+                                creativity, care and a personal touch.
                             </p>
 
                         </div>
@@ -477,14 +206,14 @@ const HomeExtraSections = () => {
                     </motion.div>
 
 
-                    {/* Deals */}
+                    {/* Craft Highlights */}
 
-                    <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-
-                        {shoppingDeals.map((deal, index) => (
+                    <div
+                        className="mt-12 flex gap-4 overflow-x-auto scrollbar-hide">
+                        {craftHighlights.map((deal, index) => (
 
                             <motion.div
-                                key={deal.tag}
+                                key={deal.tag + index}
                                 initial={{
                                     opacity: 0,
                                     y: 30,
@@ -504,45 +233,46 @@ const HomeExtraSections = () => {
                                     y: -6,
                                 }}
                                 className="
-                                    group
-                                    relative
-                                    overflow-hidden
-                                    rounded-[24px]
-                                    border
-                                    border-white/10
-                                    bg-white/[0.04]
-                                    p-6
-                                    transition-all
-                                    duration-300
-                                    hover:border-orange-500/50
-                                    hover:bg-white/[0.07]
-                                "
+                group
+                relative
+                flex-shrink-0
+                w-[280px]
+                h-[240px]
+                overflow-hidden
+                rounded-[24px]
+                border
+                border-white/10
+                bg-white/[0.04]
+                p-6
+                transition-all
+                duration-300
+                hover:border-orange-500/50
+                hover:bg-white/[0.07]
+            "
                             >
-
-                                {/* 👉 BACKGROUND IMAGE SLOT — apni image yaha deal.image me dein */}
 
                                 {deal.image && (
                                     <img
                                         src={deal.image}
-                                        alt={deal.tag}
+                                        alt={deal.price}
                                         className="
-                                            absolute
-                                            inset-0
-                                            h-full
-                                            w-full
-                                            object-cover
-                                        "
+                        absolute
+                        inset-0
+                        h-full
+                        w-full
+                        object-cover
+                    "
                                     />
                                 )}
 
-                                {/* Dark overlay so text stays readable over the image */}
+                                {/* Dark overlay */}
 
                                 <div
                                     className="
-                                        absolute
-                                        inset-0
-                                        bg-black/30
-                                    "
+                    absolute
+                    inset-0
+                    bg-black/45
+                "
                                 />
 
                                 <div className="relative">
@@ -551,11 +281,11 @@ const HomeExtraSections = () => {
 
                                         <span
                                             className="
-                                                text-[9px]
-                                                font-bold
-                                                tracking-[0.18em]
-                                                text-orange-500
-                                            "
+                            text-[9px]
+                            font-bold
+                            tracking-[0.18em]
+                            text-orange-500
+                        "
                                         >
                                             {deal.tag}
                                         </span>
@@ -569,23 +299,23 @@ const HomeExtraSections = () => {
 
                                     <h3
                                         className="
-                                            mt-12
-                                            text-2xl
-                                            font-semibold
-                                            tracking-[-0.05em]
-                                        "
+                        mt-10
+                        text-2xl
+                        font-semibold
+                        tracking-[-0.05em]
+                    "
                                     >
                                         {deal.price}
                                     </h3>
 
                                     <p
                                         className="
-                                            mt-2
-                                            min-h-[40px]
-                                            text-xs
-                                            leading-5
-                                            text-white/40
-                                        "
+                        mt-2
+                        min-h-[40px]
+                        text-xs
+                        leading-5
+                        text-white/50
+                    "
                                     >
                                         {deal.items}
                                     </p>
@@ -593,29 +323,33 @@ const HomeExtraSections = () => {
                                     <button
                                         type="button"
                                         className="
-                                            mt-6
-                                            flex
-                                            items-center
-                                            gap-2
-                                            text-[10px]
-                                            font-semibold
-                                            uppercase
-                                            tracking-[0.15em]
-                                            text-white
-                                        "
+                        mt-5
+                        flex
+                        items-center
+                        gap-2
+                        text-[10px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.15em]
+                        text-white
+                    "
+                   onClick={()=>navigate("/our-crafts")}
+
                                     >
-                                        Shop Now
+                                        Explore
 
                                         <ArrowUpRight
                                             size={14}
                                             className="
-                                                text-orange-500
-                                                transition-transform
-                                                duration-300
-                                                group-hover:translate-x-1
-                                                group-hover:-translate-y-1
-                                            "
+                            text-orange-500
+                            transition-transform
+                            duration-300
+                            group-hover:translate-x-1
+                            group-hover:-translate-y-1
+                        "
+                       
                                         />
+
                                     </button>
 
                                 </div>
@@ -623,18 +357,17 @@ const HomeExtraSections = () => {
                             </motion.div>
 
                         ))}
-
                     </div>
-
                 </div>
+
             </section>
 
 
             {/* =====================================================
-                WHY BHARAT TREND
+                OUR PROMISE
             ====================================================== */}
 
-            <section className="bg-white px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+            <section className="bg-white px-5 py-20 sm:px-8 lg:px-10 lg:py-16">
 
                 <div className="mx-auto max-w-7xl">
 
@@ -679,9 +412,9 @@ const HomeExtraSections = () => {
                                     lg:text-7xl
                                 "
                             >
-                                Why Bharat
+                                Made With
                                 <span className="text-blue-600">
-                                    {" "}Trend?
+                                    {" "}Creativity.
                                 </span>
                             </h2>
 
@@ -694,8 +427,8 @@ const HomeExtraSections = () => {
                                     sm:text-base
                                 "
                             >
-                                Fashion for Every Bharatiya — Trend for
-                                everyone.
+                                Creating handmade art, personalised gifts and
+                                unique crafts that make every moment special.
                             </p>
 
                         </div>
@@ -830,7 +563,7 @@ const HomeExtraSections = () => {
                     </div>
 
 
-                    {/* Brand Stats */}
+                    {/* Craft Stats */}
 
                     <motion.div
                         initial={{
@@ -862,11 +595,11 @@ const HomeExtraSections = () => {
                         <div className="border-b border-white/10 px-6 py-7 sm:border-b-0 sm:border-r">
 
                             <p className="text-3xl font-semibold">
-                                10M+
+                                6+
                             </p>
 
                             <p className="mt-1 text-[9px] uppercase tracking-[0.15em] text-white/35">
-                                Happy Customers
+                                Craft Categories
                             </p>
 
                         </div>
@@ -874,11 +607,11 @@ const HomeExtraSections = () => {
                         <div className="border-b border-white/10 px-6 py-7 sm:border-b-0 sm:border-r">
 
                             <p className="text-3xl font-semibold">
-                                4.8/5
+                                100+
                             </p>
 
                             <p className="mt-1 text-[9px] uppercase tracking-[0.15em] text-white/35">
-                                Average Rating
+                                Handmade Designs
                             </p>
 
                         </div>
@@ -886,11 +619,11 @@ const HomeExtraSections = () => {
                         <div className="border-r border-white/10 px-6 py-7">
 
                             <p className="text-3xl font-semibold">
-                                100%
+                                1000+
                             </p>
 
                             <p className="mt-1 text-[9px] uppercase tracking-[0.15em] text-white/35">
-                                Authentic Products
+                                Custom Creations
                             </p>
 
                         </div>
@@ -898,11 +631,11 @@ const HomeExtraSections = () => {
                         <div className="px-6 py-7">
 
                             <p className="text-3xl font-semibold text-orange-500">
-                                2026
+                                ∞
                             </p>
 
                             <p className="mt-1 text-[9px] uppercase tracking-[0.15em] text-white/35">
-                                Trusted Brand
+                                Creative Possibilities
                             </p>
 
                         </div>
@@ -910,14 +643,15 @@ const HomeExtraSections = () => {
                     </motion.div>
 
                 </div>
+
             </section>
 
 
             {/* =====================================================
-                HAPPY CUSTOMERS
+                CUSTOMER STORIES
             ====================================================== */}
 
-            <section className="bg-[#f2f2ef] px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+            <section className="bg-[#f2f2ef] px-5 py-20 sm:px-8 lg:px-10 lg:py-10">
 
                 <div className="mx-auto max-w-7xl">
 
@@ -961,9 +695,9 @@ const HomeExtraSections = () => {
                                     sm:text-6xl
                                 "
                             >
-                                Happy
+                                Stories
                                 <span className="text-orange-600">
-                                    {" "}Customers.
+                                    {" "}of Craft.
                                 </span>
                             </h2>
 
@@ -975,8 +709,8 @@ const HomeExtraSections = () => {
                                     text-black/55
                                 "
                             >
-                                Real stories from real families across
-                                Bharat.
+                                Discover how handmade art and personalised
+                                creations become meaningful memories.
                             </p>
 
                         </div>
@@ -984,7 +718,7 @@ const HomeExtraSections = () => {
                     </motion.div>
 
 
-                    {/* Testimonials */}
+                    {/* Customer Stories */}
 
                     <div className="mt-12 grid gap-5 lg:grid-cols-3">
 
@@ -1046,7 +780,7 @@ const HomeExtraSections = () => {
                                 </div>
 
 
-                                {/* Review */}
+                                {/* Story */}
 
                                 <p
                                     className="
@@ -1061,11 +795,9 @@ const HomeExtraSections = () => {
                                 </p>
 
 
-                                {/* Customer */}
+                                {/* Person */}
 
                                 <div className="mt-8 flex items-center gap-3 border-t border-black/10 pt-5">
-
-                                    {/* Image Placeholder */}
 
                                     <div
                                         className="
@@ -1083,7 +815,9 @@ const HomeExtraSections = () => {
                                             text-white
                                         "
                                     >
+
                                         {customer.image ? (
+
                                             <img
                                                 src={customer.image}
                                                 alt={customer.name}
@@ -1097,9 +831,11 @@ const HomeExtraSections = () => {
                                                         "none";
                                                 }}
                                             />
+
                                         ) : (
                                             customer.name.charAt(0)
                                         )}
+
                                     </div>
 
                                     <div>
@@ -1123,7 +859,7 @@ const HomeExtraSections = () => {
                     </div>
 
 
-                    {/* Reviews CTA */}
+                    {/* Stories CTA */}
 
                     <motion.div
                         initial={{
@@ -1162,7 +898,7 @@ const HomeExtraSections = () => {
                                 hover:text-black
                             "
                         >
-                            Read More Reviews
+                            Explore Gallery
 
                             <ArrowUpRight size={15} />
 
@@ -1171,6 +907,7 @@ const HomeExtraSections = () => {
                     </motion.div>
 
                 </div>
+
             </section>
 
 
@@ -1219,7 +956,7 @@ const HomeExtraSections = () => {
                                     text-orange-500
                                 "
                             >
-                                Bharat Trend
+                                Handmade With Love
                             </p>
 
                             <h2
@@ -1234,9 +971,9 @@ const HomeExtraSections = () => {
                                     lg:text-6xl
                                 "
                             >
-                                Trend for everyone.
+                                Your idea.
                                 <span className="block text-white/25">
-                                    Made for Bharat.
+                                    Your art. Your story.
                                 </span>
                             </h2>
 
@@ -1255,13 +992,15 @@ const HomeExtraSections = () => {
                             "
                         >
                             <ArrowUpRight size={23} />
-
                         </div>
 
                     </motion.div>
 
                 </div>
+
             </section>
+
+            <hr className="text-white" />
 
         </main>
     );

@@ -1,17 +1,18 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import {
     Mail,
     User,
     Phone,
     X,
-    MessageSquare,
     Send,
     CircleDashed,
     ChevronDown,
 } from 'lucide-react'
+
+import logo from "../assets/logo.jpeg"
 
 const ConatctModal = ({ open, onClose }) => {
     const [loading, setLoading] = useState(false)
@@ -253,7 +254,7 @@ const ConatctModal = ({ open, onClose }) => {
                                     "
                                 >
                                     <motion.img
-                                        src="/Logo.png"
+                                        src = {logo} 
                                         alt="Logo"
                                         whileHover={{
                                             scale: 1.05,
